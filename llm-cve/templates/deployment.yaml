@@ -49,6 +49,26 @@ spec:
                 configMapKeyRef:
                   name: app-config
                   key: groq_model_name
+            - name: PINECONE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: pinecone-api-secret
+                  key: pinecone_api_key
+            - name: PINECONE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: pinecone_environment
+            - name: PINCONE_CLOUD 
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: pinecone_cloud
+            - name: PINECONE_REGION
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: pinecone_region
           livenessProbe:
             httpGet:
               path: /_stcore/health
