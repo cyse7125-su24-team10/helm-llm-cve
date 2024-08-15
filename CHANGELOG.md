@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/cyse7125-su24-team10/helm-llm-cve/compare/v1.0.0...v1.0.1) (2024-08-15)
+
+
+### Bug Fixes
+
+* testing ([8a761c9](https://github.com/cyse7125-su24-team10/helm-llm-cve/commit/8a761c918e9708b307e063e4e944b48bf5a8f386))
+
 # 1.0.0 (2024-08-15)
 
 
