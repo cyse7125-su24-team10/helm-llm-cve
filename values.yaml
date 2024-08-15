@@ -4,7 +4,7 @@ image:
   repository: vkneu7/llm-cve
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "pinecone"
+  tag: "v1.4.0"
 
 # imagePullSecrets: []
 # nameOverride: ""
@@ -12,16 +12,17 @@ image:
 
 appConfig:
   groqModelName: "mixtral-8x7b-32768"
-  pineconeEnvironment: "cve"
-  pineconeCloud: "aws"
+  pineconeEnvironment: "cve" 
+  pineconeCloud: "aws" 
   pineconeRegion: "us-east-1"
 
 secrets:
-  dbPassword: "placeholder_for_db_password"
-  dockerConfigJson: "placeholder_for_docker_config_json"
-  kafkaPassword: "placeholder_for_kafka_password"
-  groqApiKey: "placeholder_for_groq_api_key"
-  pineconeApiKey: "placeholder_for_pinecone_api_key"
+  dbPassword: dmluMTIz
+  dockerConfigJson: eyJhdXRocyI6IHsiaHR0cHM6Ly9pbmRleC5kb2NrZXIuaW8vdjEvIjogeyJ1c2VybmFtZSI6ICJ2a25ldTciLCAicGFzc3dvcmQiOiAiZGNrcl9wYXRfdkRjVk1JYzY4WkJhVEc0UGQxUUtEdWIwdXJVIiwgImVtYWlsIjogInZpbmF5MjEwMzE5OThAZ21haWwuY29tIiwgImF1dGgiOiAiZG10dVpYVTNPbVJqYTNKZmNHRjBYM1pFWTFaTlNXTTJPRnBDWVZSSE5GQmtNVkZMUkhWaU1IVnlWUT09In19fQ==
+  kafkaPassword: bFNlb0hMNVU2TQ==
+  groqApiKey: Z3NrX0lwd1NuODBzYWJtbU9LbzZ6d2JXV0dkeWIzRlkxMG44UVdLeHllU1pIdFJ3WHl6OHdvNGI=
+  # pineconeApiKey: MzA0Yjc3MTktOTg1YS00NWE1LThjYTAtNzQzZTE4MzViMTc2 -- sid
+  pineconeApiKey: MDQzMzZlZWYtY2QwMC00NzAxLWI1MGItMDExNTMyOTMzZjg5
 
 service:
   type: ClusterIP
@@ -103,10 +104,10 @@ ingress:
 #     port: http
 
 autoscaling:
-  enabled: false
+  enabled: true
   minReplicas: 1
   maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
+  targetCPUUtilizationPercentage: 10
   # targetMemoryUtilizationPercentage: 80
 
 # # Additional volumes on the output Deployment definition.
