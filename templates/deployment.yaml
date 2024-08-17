@@ -23,6 +23,20 @@ spec:
         {{- toYaml . | nindent 8 }}
         {{- end }}
     spec:
+      tolerations:
+      - key: "dedicated"
+        operator: "Equal"
+        value: "ollama"
+        effect: "NoSchedule"
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: instance-type
+                operator: In
+                values:
+                - r6id.2xlarge
       imagePullSecrets:
       - name: docker-hub-pat
       serviceAccountName: {{ include "llm-cve.serviceAccountName" . }}
@@ -83,3 +97,17 @@ spec:
             periodSeconds: 5
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+        - name: ollama 
+          image: "vkneu7/ollama:llama3" 
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: ollama
+              containerPort: 11434
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 6
+              memory: 60Gi
+            limits:
+              cpu: 7
+              memory: 62Gi
