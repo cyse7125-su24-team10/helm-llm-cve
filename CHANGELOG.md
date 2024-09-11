@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/cyse7125-su24-team10/helm-llm-cve/compare/v1.0.1...v1.1.0) (2024-09-11)
+
+
+### Features
+
+* taints and tolerations for ollama pod ([161b21a](https://github.com/cyse7125-su24-team10/helm-llm-cve/commit/161b21aee83113699cbde3ce3e9c39e3dde69fea))
+
 ## [1.0.1](https://github.com/cyse7125-su24-team10/helm-llm-cve/compare/v1.0.0...v1.0.1) (2024-08-15)
 
 
